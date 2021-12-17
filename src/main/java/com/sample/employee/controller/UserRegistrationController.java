@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sample.employee.dto.UserRegistrationDto;
+import com.sample.employee.dto.UserRegistrationDTO;
 import com.sample.employee.service.UserService;
 
 @Controller
@@ -21,8 +21,8 @@ public class UserRegistrationController {
 	}
 	
 	@ModelAttribute("user")
-    public UserRegistrationDto userRegistrationDto() {
-        return new UserRegistrationDto();
+    public UserRegistrationDTO userRegistrationDto() {
+        return new UserRegistrationDTO();
     }
 	
 	@GetMapping
@@ -31,7 +31,7 @@ public class UserRegistrationController {
 	}
 	
 	@PostMapping
-	public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto) {
+	public String registerUserAccount(@ModelAttribute("user") UserRegistrationDTO registrationDto) {
 		userService.save(registrationDto);
 		return "redirect:/registration?success";
 	}

@@ -1,15 +1,12 @@
 package com.sample.employee.service;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 
 import com.sample.employee.model.Employee;
 
 public interface EmployeeService {
-	List<Employee> getAllEmployees();
+	Iterable<Employee> getAllEmployees();
 	void saveEmployee(Employee employee);
 	Employee getEmployeeById(long id);
 	void deleteEmployeeById(long id);
-	Page<Employee> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
 }

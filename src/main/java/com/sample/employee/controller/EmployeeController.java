@@ -3,25 +3,34 @@ package com.sample.employee.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sample.employee.model.Employee;
 import com.sample.employee.service.EmployeeService;
 
+/**
+ * Controller that handles requests for the employees.
+ */
 @Controller
 public class EmployeeController {
 
+  /**
+   * The employee service.
+   */
 	@Autowired
 	private EmployeeService employeeService;
 	
-	// display list of employees
+	/**
+	 * List all employees.
+	 * 
+	 * @param model The model to add attribute.
+	 * @return The employees page.
+	 */
 	@GetMapping("/")
 	public String viewHomePage(Model model) {
 		List<Employee> listEmployees = (List<Employee>) employeeService.getAllEmployees();
@@ -29,6 +38,13 @@ public class EmployeeController {
 		return "index";
 	}
 	
+	/**
+	 * Add a new employee.
+	 * 
+	 * @param model The model to add attribute.
+	 * @return The new employee page.
+	 * 
+	 */
 	@GetMapping("/showNewEmployeeForm")
 	public String showNewEmployeeForm(Model model) {
 		// create model attribute to bind form data
@@ -37,6 +53,13 @@ public class EmployeeController {
 		return "new_employee";
 	}
 	
+	/**
+	 * Save employee.
+	 * 
+	 * @param employee The employee to save.
+	 * 
+	 * @return The page with all employees.
+	 */
 	@PostMapping("/saveEmployee")
 	public String saveEmployee(@ModelAttribute("employee") Employee employee) {
 		// save employee to database
@@ -44,6 +67,14 @@ public class EmployeeController {
 		return "redirect:/";
 	}
 	
+	/**
+	 * Update employee specified by id..
+	 * 
+	 * @param id The id of the employee to update.
+	 * @param model The model to add attribute.
+	 * 
+	 * @return The update employee page.
+	 */
 	@GetMapping("/showFormForUpdate/{id}")
 	public String showFormForUpdate(@PathVariable ( value = "id") long id, Model model) {
 		
@@ -55,6 +86,13 @@ public class EmployeeController {
 		return "update_employee";
 	}
 	
+	/**
+	 * Delete employee specified by id.
+	 * 
+	 * @param id The id of the employee to delete.
+	 * 
+	 * @return The page with all employees
+	 */
 	@GetMapping("/deleteEmployee/{id}")
 	public String deleteEmployee(@PathVariable (value = "id") long id) {
 		
@@ -62,5 +100,4 @@ public class EmployeeController {
 		this.employeeService.deleteEmployeeById(id);
 		return "redirect:/";
 	}
-	
 }

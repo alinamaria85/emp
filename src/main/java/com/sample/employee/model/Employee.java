@@ -10,22 +10,37 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Entity object for the "employees" table.
+ */
 @Entity
 @Table(name = "employees")
 @Getter
 @Setter
 public class Employee {
 	
+  /**
+   * The employee id.
+   */
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private long id;
 	
+	/**
+	 * The employee first name.
+	 */
 	@Column(name = "first_name")
 	private String firstName;
 	
+	/**
+	 * The employee last name.
+	 */
 	@Column(name = "last_name")
 	private String lastName;
 	
+	/**
+	 * The employee email.
+	 */
 	@Column(name = "email")
 	private String email;
 }

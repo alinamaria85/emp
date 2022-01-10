@@ -8,9 +8,15 @@ import org.springframework.stereotype.Service;
 import com.sample.employee.model.Employee;
 import com.sample.employee.repository.EmployeeRepository;
 
+/**
+ * Implementation for the employee service.
+ */
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
+	/**
+	 * The employee repository.
+	 */
 	@Autowired
 	private EmployeeRepository employeeRepository;
 

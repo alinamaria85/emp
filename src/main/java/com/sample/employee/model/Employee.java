@@ -45,4 +45,10 @@ public class Employee {
 	 */
 	@Column(name = "email")
 	private String email;
+	
+	/**
+   * The employee role.
+   */
+  @Column(name = "role")
+	private String role;
 }

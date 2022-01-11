@@ -27,7 +27,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
    * 
    * @return The list with all developers.
    */
-  @Query(value = "SELECT * FROM employees WHERE role='SOFTWARE_DEVELOPER_JUNIOR' OR role='SOFTWARE_DEVELOPER_SENIOR'", nativeQuery = true)
+  @Query(value = "SELECT * FROM employees WHERE role='Software Developer Junior' OR role='Software Developer Senior'", nativeQuery = true)
   public List<Employee> findAllDevelopers();
 
 }

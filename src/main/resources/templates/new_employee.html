@@ -23,9 +23,19 @@
 				placeholder="Last Name" class="form-control mb-4 col-4">
 				
 				<input type="text" th:field="*{email}"
-				placeholder="Email" class="form-control mb-4 col-4">
+				placeholder="Email" class="form-control mb-4 col-4"> 
 				
-				<button type="submit" class="btn btn-info col-2"> Save Employee</button>
+				<select id="role" name="Role">
+					<option style="display:none">Select Role</option>
+					<option value="Software Developer Junior" >Software Developer Junior</option>
+					<option value="Software Developer Senior">Software Developer Senior</option>
+					<option value="Quality Assurance Junior">Quality Assurance Junior</option>
+					<option value="Quality Assurance Senior">Quality Assurance Senior</option>
+					<option value="Technical Writer">Technical Writer</option>
+					<option value="System Administrator">System Administrator</option>
+				</select>
+				<hr>
+			<button type="submit" class="btn btn-info col-2"> Save Employee</button>
 		</form>
 		
 		<hr>

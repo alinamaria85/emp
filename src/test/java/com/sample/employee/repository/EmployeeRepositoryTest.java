@@ -44,7 +44,7 @@ public class EmployeeRepositoryTest {
   
 
   /**
-   * Assert the find all employees method
+   * Test the find all employees method
    */
   @Test
   public void testFindAllEmployees() {
@@ -52,12 +52,12 @@ public class EmployeeRepositoryTest {
     List<Employee> allEmployees = (List<Employee>) employeeRepository.findAll();
     assertEquals(6, allEmployees.size(), "Should be 6 employees");
     // Assert the employees
-    assertEmployee(allEmployees.get(0), 1, "John", "Tailor", "john_tailor@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.name());
-    assertEmployee(allEmployees.get(1), 2, "Olivia", "Wilson", "olivia_wilson@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.name());
-    assertEmployee(allEmployees.get(2), 3, "William", "Brown", "wiliam_brown@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.name());
-    assertEmployee(allEmployees.get(3), 4, "Emma", "White", "emma_white@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.name());
-    assertEmployee(allEmployees.get(4), 5, "Oliver", "Smith", "oliver_smith@gmail.com", Role.QUALITY_ASSURANCE_SENIOR.name());
-    assertEmployee(allEmployees.get(5), 6, "Victoria", "Williams", "victoria_williams@gmail.com", Role.TECHNICAL_WRITER.name());
+    assertEmployee(allEmployees.get(0), 1, "John", "Tailor", "john_tailor@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(1), 2, "Olivia", "Wilson", "olivia_wilson@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(2), 3, "William", "Brown", "wiliam_brown@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(3), 4, "Emma", "White", "emma_white@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(4), 5, "Oliver", "Smith", "oliver_smith@gmail.com", Role.QUALITY_ASSURANCE_SENIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(5), 6, "Victoria", "Williams", "victoria_williams@gmail.com", Role.TECHNICAL_WRITER.getEmployeeRole());
   }
   
   /**
@@ -89,7 +89,7 @@ public class EmployeeRepositoryTest {
     
     // Assert that employee exist, and assert his info
     assertTrue(foundEmp.isPresent(), "The employee with id 3 wasn't found");
-    assertEmployee(foundEmp.get(), 3, "William", "Brown", "wiliam_brown@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.name());
+    assertEmployee(foundEmp.get(), 3, "William", "Brown", "wiliam_brown@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.getEmployeeRole());
   }
   
   /**
@@ -103,11 +103,11 @@ public class EmployeeRepositoryTest {
     List<Employee> allEmployees = (List<Employee>) employeeRepository.findAll();
     assertEquals(5, allEmployees.size(), "Should be 5 employees");
     // Assert the employees
-    assertEmployee(allEmployees.get(0), 1, "John", "Tailor", "john_tailor@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.name());
-    assertEmployee(allEmployees.get(1), 2, "Olivia", "Wilson", "olivia_wilson@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.name());
-    assertEmployee(allEmployees.get(2), 4, "Emma", "White", "emma_white@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.name());
-    assertEmployee(allEmployees.get(3), 5, "Oliver", "Smith", "oliver_smith@gmail.com", Role.QUALITY_ASSURANCE_SENIOR.name());
-    assertEmployee(allEmployees.get(4), 6, "Victoria", "Williams", "victoria_williams@gmail.com", Role.TECHNICAL_WRITER.name());
+    assertEmployee(allEmployees.get(0), 1, "John", "Tailor", "john_tailor@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(1), 2, "Olivia", "Wilson", "olivia_wilson@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(2), 4, "Emma", "White", "emma_white@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(3), 5, "Oliver", "Smith", "oliver_smith@gmail.com", Role.QUALITY_ASSURANCE_SENIOR.getEmployeeRole());
+    assertEmployee(allEmployees.get(4), 6, "Victoria", "Williams", "victoria_williams@gmail.com", Role.TECHNICAL_WRITER.getEmployeeRole());
   }
   
   /**
@@ -119,7 +119,7 @@ public class EmployeeRepositoryTest {
     
     assertNotNull(employee, "Should be an employee with email 'oliver_smith@gmail.com'");
     
-    assertEmployee(employee, 5, "Oliver", "Smith", "oliver_smith@gmail.com", Role.QUALITY_ASSURANCE_SENIOR.name());
+    assertEmployee(employee, 5, "Oliver", "Smith", "oliver_smith@gmail.com", Role.QUALITY_ASSURANCE_SENIOR.getEmployeeRole());
     
     employee = employeeRepository.findByEmail("test@gmail.com");
     
@@ -136,10 +136,10 @@ public class EmployeeRepositoryTest {
     assertEquals(4, allDevelopers.size());
     
     // Assert the developers
-    assertEmployee(allDevelopers.get(0), 1, "John", "Tailor", "john_tailor@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.name());
-    assertEmployee(allDevelopers.get(1), 2, "Olivia", "Wilson", "olivia_wilson@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.name());
-    assertEmployee(allDevelopers.get(2), 3, "William", "Brown", "wiliam_brown@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.name());
-    assertEmployee(allDevelopers.get(3), 4, "Emma", "White", "emma_white@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.name());
+    assertEmployee(allDevelopers.get(0), 1, "John", "Tailor", "john_tailor@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.getEmployeeRole());
+    assertEmployee(allDevelopers.get(1), 2, "Olivia", "Wilson", "olivia_wilson@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.getEmployeeRole());
+    assertEmployee(allDevelopers.get(2), 3, "William", "Brown", "wiliam_brown@gmail.com", Role.SOFTWARE_DEVELOPER_SENIOR.getEmployeeRole());
+    assertEmployee(allDevelopers.get(3), 4, "Emma", "White", "emma_white@gmail.com", Role.SOFTWARE_DEVELOPER_JUNIOR.getEmployeeRole());
   }
   
   /**

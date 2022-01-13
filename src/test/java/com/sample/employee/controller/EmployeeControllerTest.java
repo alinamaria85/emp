@@ -35,7 +35,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sample.employee.model.Employee;
-import com.sample.employee.service.EmployeeService;
+import com.sample.employee.service.IEmployeeService;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -48,7 +48,7 @@ public class EmployeeControllerTest {
   private MockMvc mvc;
   
   @MockBean
-  private EmployeeService employeeService;
+  private IEmployeeService employeeService;
 
   @Test
   public void testViewHomePage() throws Exception {

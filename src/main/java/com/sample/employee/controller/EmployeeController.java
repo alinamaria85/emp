@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sample.employee.model.Employee;
-import com.sample.employee.service.EmployeeService;
+import com.sample.employee.service.IEmployeeService;
 
 /**
  * Controller that handles requests for the employees.
@@ -23,7 +23,7 @@ public class EmployeeController {
    * The employee service.
    */
 	@Autowired
-	private EmployeeService employeeService;
+	private IEmployeeService employeeService;
 	
 	/**
 	 * List all employees.

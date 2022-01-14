@@ -32,7 +32,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="employee : ${listEmployees}">
+				<tr th:each="employee : ${employeesList}">
 					<td th:text="${employee.firstName}"></td>
 					<td th:text="${employee.lastName}"></td>
 					<td th:text="${employee.email}"></td>

@@ -32,9 +32,9 @@ public class EmployeeController {
 	 * @return The employees page.
 	 */
 	@GetMapping("/")
-	public String viewHomePage(Model model) {
-		List<Employee> listEmployees = (List<Employee>) employeeService.getAllEmployees();
-		model.addAttribute("listEmployees", listEmployees);
+	public String viewAllEmployees(Model model) {
+		List<Employee> employeeList = (List<Employee>) employeeService.getAllEmployees();
+		model.addAttribute("employeesList", employeeList);
 		return "index";
 	}
 	
